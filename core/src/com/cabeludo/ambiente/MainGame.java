@@ -7,6 +7,7 @@ import com.cabeludo.ambiente.telas.playScreen;
 public class MainGame extends Game {
 	public static final int V_LARGURA = 400;
 	public static final int V_ALTURA = 208;
+	public static final float PPM = 100;
 	public SpriteBatch batch;
 	
 	@Override

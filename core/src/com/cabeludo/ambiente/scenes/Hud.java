@@ -19,12 +19,14 @@ public class Hud {
     private float timeCount;
     private Integer score;
 
+    
     Label countdownLabel;
     Label scoreLabel;
     Label timeLabel;
     Label levelLabel;
     Label worldLabel;
     Label lenyLabel;
+
     public Hud(SpriteBatch sb) {
         worldTimer = 0;
         timeCount = 0;
