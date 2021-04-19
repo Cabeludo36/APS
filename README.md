@@ -1,3 +1,4 @@
+[APS3.md](https://github.com/Cabeludo36/APS/files/6337335/APS3.md)
 # APS
 
 ## Objetivo:
@@ -23,8 +24,3 @@ Pede-se aos alunos que desenvolvam um **jogo** com **interface gráfica** utiliz
 ### Assets da fase de teste:
 
 **Fundo e Terreno:** https://svtsmka.itch.io/projectutumno-full?download
-
-------
-
-[TOC]
-
