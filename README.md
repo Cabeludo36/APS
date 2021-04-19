@@ -18,17 +18,15 @@ Pede-se aos alunos que desenvolvam um **jogo** com **interface gráfica** utiliz
 
 ### Assets do jogo final:
 
-[Leny Animations]: https://legnops.itch.io/red-hood-character
+[Leny Animations]: https://legnops.itch.io/red-hood-character	"Leny Animations"
 
 
 
 ### Assets da fase de teste:
 
-[Fundo e Terreno]: https://svtsmka.itch.io/projectutumno-full?download
+[Fundo e Terreno]: https://svtsmka.itch.io/projectutumno-full?download	"Fundo e Terreno"
 
 ------
 
 [TOC]
-
-
 
