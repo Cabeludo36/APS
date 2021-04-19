@@ -1,0 +1,13 @@
+
+lenyParado.png
+size: 2048,64
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+idle sheet-Sheet
+  rotate: false
+  xy: 0, 0
+  size: 1384, 34
+  orig: 1384, 34
+  offset: 0, 0
+  index: -1

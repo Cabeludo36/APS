@@ -1,0 +1,41 @@
+
+lenyAni.png
+size: 2048,256
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+idle sheet-Sheet
+  rotate: false
+  xy: 0, 82
+  size: 1384, 34
+  orig: 1384, 34
+  offset: 0, 0
+  index: -1
+itch hurt 2 sheet-Sheet
+  rotate: false
+  xy: 0, 1
+  size: 560, 80
+  orig: 560, 80
+  offset: 0, 0
+  index: -1
+itch jump sheet-Sheet
+  rotate: false
+  xy: 0, 117
+  size: 1457, 38
+  orig: 1457, 38
+  offset: 0, 0
+  index: -1
+itch light atk sheet-Sheet
+  rotate: false
+  xy: 0, 195
+  size: 2019, 33
+  orig: 2019, 33
+  offset: 0, 0
+  index: -1
+itch run-Sheet sheet
+  rotate: false
+  xy: 0, 156
+  size: 1866, 38
+  orig: 1866, 38
+  offset: 0, 0
+  index: -1

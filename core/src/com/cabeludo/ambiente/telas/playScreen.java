@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -29,6 +30,8 @@ public class playScreen implements Screen{
 
     private MainGame game;
 
+    private TextureAtlas atlas;
+
     //testura
     Texture texture;
     //camera e viewport
@@ -50,6 +53,8 @@ public class playScreen implements Screen{
     private Leny player;
 
     public playScreen(MainGame game) {
+
+        atlas = new TextureAtlas("G:/programas/Java/APS/core/assets/lenyAni.atlas");
         
         this.game = game;
         //camera e viewport
@@ -68,7 +73,7 @@ public class playScreen implements Screen{
 
         b2dr = new Box2DDebugRenderer();
 
-        player= new Leny(world);
+        player= new Leny(world, this);
 
         BodyDef bdef = new BodyDef();
         PolygonShape shape = new PolygonShape();
@@ -120,6 +125,11 @@ public class playScreen implements Screen{
 
         world.step(1/60f,6,2);
 
+        player.update(dt);
+
+    }
+    public TextureAtlas getAtlas() {
+        return atlas;
     }
 
     public void pegaInput(float dt) {
@@ -150,6 +160,11 @@ public class playScreen implements Screen{
         renderer.render();
 
         b2dr.render(world, gameCam.combined);
+
+        game.batch.setProjectionMatrix(gameCam.combined);
+        game.batch.begin();
+        player.draw(game.batch);
+        game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
         hud.stage.draw();
