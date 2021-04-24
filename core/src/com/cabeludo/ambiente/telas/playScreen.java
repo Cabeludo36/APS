@@ -24,7 +24,10 @@ import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cabeludo.ambiente.MainGame;
 import com.cabeludo.ambiente.scenes.Hud;
+import com.cabeludo.ambiente.sprites.Caixa;
 import com.cabeludo.ambiente.sprites.Leny;
+import com.cabeludo.ambiente.tools.B2WorldCreator;
+import com.cabeludo.ambiente.tools.WorldContactListener;
 
 public class playScreen implements Screen{
 
@@ -48,9 +51,13 @@ public class playScreen implements Screen{
     //box2D
     private World world;
     private Box2DDebugRenderer b2dr;
+    private B2WorldCreator creator;
 
     //player
     private Leny player;
+
+    //objetos
+    private Caixa caixa;
 
     public playScreen(MainGame game) {
 
@@ -64,7 +71,7 @@ public class playScreen implements Screen{
         hud = new Hud(game.batch);
         //load do mapa
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("test.tmx");
+        map = mapLoader.load("core/assets/jogo.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1/MainGame.PPM);
         //posicao da camera
         gameCam.position.set(gamePort.getWorldHeight() /2 , gamePort.getWorldHeight() /2, 0);
@@ -73,46 +80,11 @@ public class playScreen implements Screen{
 
         b2dr = new Box2DDebugRenderer();
 
-        player= new Leny(world, this);
+        player = new Leny(world, this);
 
-        BodyDef bdef = new BodyDef();
-        PolygonShape shape = new PolygonShape();
-        FixtureDef fdef = new FixtureDef();
-        Body body;
+        world.setContactListener(new WorldContactListener());
 
-        for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject)object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX()+rect.width/2)/MainGame.PPM, (rect.getY()+rect.height/2)/MainGame.PPM);
-            body = world.createBody(bdef);
-
-            shape.setAsBox((rect.getWidth()/2)/MainGame.PPM, (rect.getHeight()/2)/MainGame.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-        for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject)object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX()+rect.width/2)/MainGame.PPM, (rect.getY()+rect.height/2)/MainGame.PPM);
-            body = world.createBody(bdef);
-
-            shape.setAsBox((rect.getWidth()/2)/MainGame.PPM, (rect.getHeight()/2)/MainGame.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
-        for (MapObject object : map.getLayers().get(4).getObjects().getByType(RectangleMapObject.class)) {
-            Rectangle rect = ((RectangleMapObject)object).getRectangle();
-
-            bdef.type = BodyDef.BodyType.StaticBody;
-            bdef.position.set((rect.getX()+rect.width/2)/MainGame.PPM, (rect.getY()+rect.height/2)/MainGame.PPM);
-            body = world.createBody(bdef);
-
-            shape.setAsBox((rect.getWidth()/2)/MainGame.PPM, (rect.getHeight()/2)/MainGame.PPM);
-            fdef.shape = shape;
-            body.createFixture(fdef);
-        }
+        creator = new B2WorldCreator(this);
     }
 
     public void update(float dt) {
@@ -121,7 +93,8 @@ public class playScreen implements Screen{
         gameCam.update();
         renderer.setView(gameCam);
 
-        gameCam.position.x = player.b2body.getPosition().x;
+        //gameCam.position.x = player.b2body.getPosition().x;
+        gameCam.position.y = player.b2body.getPosition().y;
 
         world.step(1/60f,6,2);
 
@@ -134,7 +107,7 @@ public class playScreen implements Screen{
 
     public void pegaInput(float dt) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
-            player.b2body.applyLinearImpulse(new Vector2(0,4f), player.b2body.getWorldCenter(), true);
+            player.jump();
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT) && player.b2body.getLinearVelocity().x <= 2) {
             player.b2body.applyLinearImpulse(new Vector2(0.1f,0), player.b2body.getWorldCenter(), true);
@@ -154,16 +127,19 @@ public class playScreen implements Screen{
     public void render(float dt) {
         update(dt);
 
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         renderer.render();
 
+        //Linhas de Debug
         b2dr.render(world, gameCam.combined);
-
         game.batch.setProjectionMatrix(gameCam.combined);
+
         game.batch.begin();
+
         player.draw(game.batch);
+
         game.batch.end();
 
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
@@ -196,8 +172,19 @@ public class playScreen implements Screen{
 
     @Override
     public void dispose() {
-        // TODO Auto-generated method stub
+        map.dispose();
+        renderer.dispose();
+        world.dispose();
+        b2dr.dispose();
+        hud.dispose();
         
+    }
+
+    public World getWorld() {
+        return world;
+    }
+    public TiledMap getMap() {
+        return map;
     }
     
 }

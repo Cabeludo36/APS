@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="40" height="240" tilewidth="16" tileheight="16" infinite="0" nextlayerid="7" nextobjectid="5">
+ <tileset firstgid="1" source="jogo.tsx"/>
+ <layer id="1" name="texturas" width="40" height="240">
+  <data encoding="base64" compression="zlib">
+   eJzt0DESQDAURdHPAhTJ0LFX9kDHWsUKZIwixSne3C5/cpYhYi5bXtrliD7/15qbT6+ys6JreXPL/7Xm5lX5B378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378+PHjx48fP378vvqNKWJK7XYvOxruDVklEys=
+  </data>
+ </layer>
+ <objectgroup id="3" name="chao">
+  <object id="1" x="0" y="3808" width="640" height="32"/>
+ </objectgroup>
+ <objectgroup id="4" name="pulapula"/>
+ <objectgroup id="5" name="barreira">
+  <object id="2" x="480" y="0" width="16" height="3808"/>
+  <object id="3" x="144" y="0" width="16" height="3808"/>
+  <object id="4" x="253.333" y="3766.67" width="15" height="32.3333"/>
+ </objectgroup>
+ <objectgroup id="6" name="caixas"/>
+</map>

@@ -7,21 +7,22 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.cabeludo.ambiente.MainGame;
 
-public class Hud {
+public class Hud implements Disposable{
     public Stage stage;
     private Viewport viewport;
 
     private Integer worldTimer;
     private float timeCount;
-    private Integer score;
+    private static Integer score;
 
     
     Label countdownLabel;
-    Label scoreLabel;
+    static Label scoreLabel;
     Label timeLabel;
     Label levelLabel;
     Label worldLabel;
@@ -57,5 +58,14 @@ public class Hud {
         stage.addActor(table);
     }
 
-    
+    public static void addScore(int i) {
+        score += i;
+        scoreLabel.setText(String.format("%06d", score));
+    }
+
+    @Override
+    public void dispose() {
+        stage.dispose();
+        
+    }
 }
