@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cabeludo.ambiente.telas.playScreen;
 
 public class MainGame extends Game {
-	public static final int V_LARGURA = 400;
-	public static final int V_ALTURA = 340;
+	public static final int V_LARGURA = 610;
+	public static final int V_ALTURA = 400;
 	public static final float PPM = 100;
 
 	public static final short CHAO_BIT = 1;

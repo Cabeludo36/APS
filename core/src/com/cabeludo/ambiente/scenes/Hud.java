@@ -62,6 +62,10 @@ public class Hud implements Disposable{
         score += i;
         scoreLabel.setText(String.format("%06d", score));
     }
+    public void addTime(int i) {
+        worldTimer += i;
+        countdownLabel.setText(String.format("%06d", worldTimer));
+    }
 
     @Override
     public void dispose() {

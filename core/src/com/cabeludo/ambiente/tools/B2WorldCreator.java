@@ -24,7 +24,7 @@ public class B2WorldCreator {
         FixtureDef fdef = new FixtureDef();
         Body body;
         //cria o chão
-        for (MapObject object : map.getLayers().get(1).getObjects().getByType(RectangleMapObject.class)) {
+        for (MapObject object : map.getLayers().get(0).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
 
             bdef.type = BodyDef.BodyType.StaticBody;
@@ -49,7 +49,7 @@ public class B2WorldCreator {
             fdef.shape = shape;
             body.createFixture(fdef);
         } */
-        //cria barreira
+        /* //cria barreira
         for (MapObject object : map.getLayers().get(3).getObjects().getByType(RectangleMapObject.class)) {
             Rectangle rect = ((RectangleMapObject)object).getRectangle();
 
@@ -60,9 +60,9 @@ public class B2WorldCreator {
             shape.setAsBox((rect.getWidth()/2)/MainGame.PPM, (rect.getHeight()/2)/MainGame.PPM);
             fdef.shape = shape;
             body.createFixture(fdef);
-        }
-        //cria placa
-        for (MapObject object : map.getLayers().get(2).getObjects().getByType(RectangleMapObject.class)) {
+        } */
+        //cria VARAL
+        for (MapObject object : map.getLayers().get(1).getObjects().getByType(RectangleMapObject.class)) {
             new PlacaPrecao(screen, object, 1);
         }
     }

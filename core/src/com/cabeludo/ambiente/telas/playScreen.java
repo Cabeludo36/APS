@@ -71,10 +71,10 @@ public class playScreen implements Screen{
         hud = new Hud(game.batch);
         //load do mapa
         mapLoader = new TmxMapLoader();
-        map = mapLoader.load("core/assets/jogo.tmx");
+        map = mapLoader.load("core/assets/Level.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, 1/MainGame.PPM);
         //posicao da camera
-        gameCam.position.set(gamePort.getWorldHeight() /2 , gamePort.getWorldHeight() /2, 0);
+        gameCam.position.set((gamePort.getWorldWidth()/2), gamePort.getWorldHeight()/2, 0);
 
         world = new World(new Vector2(0, -10), true);
 
