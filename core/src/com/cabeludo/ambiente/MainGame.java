@@ -2,6 +2,7 @@ package com.cabeludo.ambiente;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.cabeludo.ambiente.telas.playScreen;
@@ -27,10 +28,13 @@ public class MainGame extends Game {
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		setScreen(new playScreen(this));
 
 		manager = new AssetManager();
+		manager.load("core/assets/audio/all_pokemon_game_themes_towns_cities.mp3", Music.class);
 		manager.load("core/assets/audio/coin.wav", Sound.class);
+		manager.finishLoading();
+
+		setScreen(new playScreen(this));
 	}
 
 	@Override

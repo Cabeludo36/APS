@@ -1,6 +1,8 @@
 package com.cabeludo.ambiente.sprites;
 
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
@@ -15,13 +17,18 @@ public class Caixa extends Sprite {
     private Body b2body;
     private float x;
     private float y;
-
+    private static TextureAtlas textureAtlas = new TextureAtlas("core/assets/caixas.atlas");
+    private TextureRegion textureRegion;
 
     public Caixa(World world, float x, float y) {
+        super(textureAtlas.findRegion("caixa1"));
         this.world = world;
         this.x = x;
         this.y = y;
         defineCaixa();
+        textureRegion = new TextureRegion(getTexture(), 2 ,2,32,32);
+        setBounds(0, 0, 32 / MainGame.PPM, 32 / MainGame.PPM);
+        setRegion(textureRegion);
     }
 
     public void update(float dt) {

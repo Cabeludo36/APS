@@ -3,6 +3,7 @@ package com.cabeludo.ambiente.telas;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -57,7 +58,21 @@ public class playScreen implements Screen{
     private Leny player;
 
     //objetos
-    private Caixa caixa;
+    private Caixa caixa1;
+    private Caixa caixa2;
+    private Caixa caixa3;
+    private Caixa caixa4;
+    private Caixa caixa5;
+    private Caixa caixa6;
+    private Caixa caixa7;
+    private Caixa caixa8;
+    private Caixa caixa9;
+    private Caixa caixa10;
+    private Caixa caixa11;
+    private Caixa caixa12;
+    private Caixa caixa13;
+
+    private Music music;
 
     public playScreen(MainGame game) {
 
@@ -68,7 +83,7 @@ public class playScreen implements Screen{
         gameCam = new OrthographicCamera();
         gamePort = new FitViewport(MainGame.V_LARGURA/MainGame.PPM, MainGame.V_ALTURA/MainGame.PPM, gameCam);
         //load da hud
-        hud = new Hud(game.batch);
+        //hud = new Hud(game.batch);
         //load do mapa
         mapLoader = new TmxMapLoader();
         map = mapLoader.load("core/assets/Level.tmx");
@@ -81,6 +96,25 @@ public class playScreen implements Screen{
         b2dr = new Box2DDebugRenderer();
 
         player = new Leny(world, this);
+
+        caixa1 = new Caixa(world, 120, 500);
+        caixa2 = new Caixa(world, 200, 1000);
+        caixa3 = new Caixa(world, 580, 1200);
+        caixa4 = new Caixa(world, 500, 1800);
+        caixa5 = new Caixa(world, 120, 1600);
+        caixa6 = new Caixa(world, 200, 1700);
+        caixa7 = new Caixa(world, 500, 2500);
+        caixa8 = new Caixa(world, 530, 2650);
+        caixa9 = new Caixa(world, 580, 1900);
+        caixa10 = new Caixa(world, 120, 2100);
+        caixa11 = new Caixa(world, 200, 2500);
+        caixa12 = new Caixa(world, 580, 1700);
+        caixa13 = new Caixa(world, 500, 900);
+
+
+        music = MainGame.manager.get("core/assets/audio/all_pokemon_game_themes_towns_cities.mp3", Music.class);
+        music.setLooping(true);
+        music.play();
 
         world.setContactListener(new WorldContactListener());
 
@@ -97,6 +131,20 @@ public class playScreen implements Screen{
         gameCam.position.y = player.b2body.getPosition().y;
 
         world.step(1/60f,6,2);
+        
+        caixa1.update(dt);
+        caixa2.update(dt);
+        caixa3.update(dt);
+        caixa4.update(dt);
+        caixa5.update(dt);
+        caixa6.update(dt); 
+        caixa7.update(dt);
+        caixa8.update(dt);
+        caixa9.update(dt);
+        caixa10.update(dt);
+        caixa11.update(dt);
+        caixa12.update(dt);
+        caixa13.update(dt);
 
         player.update(dt);
 
@@ -140,10 +188,24 @@ public class playScreen implements Screen{
 
         player.draw(game.batch);
 
+        caixa1.draw(game.batch);
+        caixa2.draw(game.batch);
+        caixa3.draw(game.batch);
+        caixa4.draw(game.batch);
+        caixa5.draw(game.batch);
+        caixa6.draw(game.batch);
+        caixa7.draw(game.batch);
+        caixa8.draw(game.batch);
+        caixa9.draw(game.batch);
+        caixa10.draw(game.batch);
+        caixa11.draw(game.batch);
+        caixa12.draw(game.batch);
+        caixa13.draw(game.batch);
+
         game.batch.end();
 
-        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
-        hud.stage.draw();
+       /*  game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        hud.stage.draw(); */
     }
 
     @Override
