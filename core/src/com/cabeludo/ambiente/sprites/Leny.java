@@ -114,7 +114,7 @@ public class Leny extends Sprite{
 
     public void defineLeny() {
         BodyDef bdef = new BodyDef();
-        bdef.position.set(200/MainGame.PPM, 5000/MainGame.PPM);
+        bdef.position.set(170/MainGame.PPM, 25/MainGame.PPM);
         bdef.type = BodyDef.BodyType.DynamicBody;
         b2body = world.createBody(bdef);
 

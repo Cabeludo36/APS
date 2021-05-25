@@ -30,7 +30,7 @@ public class MainGame extends Game {
 		batch = new SpriteBatch();
 
 		manager = new AssetManager();
-		manager.load("core/assets/audio/all_pokemon_game_themes_towns_cities.mp3", Music.class);
+		manager.load("core/assets/audio/pokemon_game_themes_towns_cities.mp3", Music.class);
 		manager.load("core/assets/audio/coin.wav", Sound.class);
 		manager.finishLoading();
 

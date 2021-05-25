@@ -112,7 +112,7 @@ public class playScreen implements Screen{
         caixa13 = new Caixa(world, 500, 900);
 
 
-        music = MainGame.manager.get("core/assets/audio/all_pokemon_game_themes_towns_cities.mp3", Music.class);
+        music = MainGame.manager.get("core/assets/audio/pokemon_game_themes_towns_cities.mp3", Music.class);
         music.setLooping(true);
         music.play();
 
@@ -181,7 +181,8 @@ public class playScreen implements Screen{
         renderer.render();
 
         //Linhas de Debug
-        b2dr.render(world, gameCam.combined);
+        //b2dr.render(world, gameCam.combined);
+        
         game.batch.setProjectionMatrix(gameCam.combined);
 
         game.batch.begin();

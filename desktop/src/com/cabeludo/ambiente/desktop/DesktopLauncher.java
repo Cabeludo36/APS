@@ -7,7 +7,7 @@ import com.cabeludo.ambiente.MainGame;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		config.width = 1600;
+		config.width = 1265;
 		config.height = 832;
 		new LwjglApplication(new MainGame(), config);
 	}

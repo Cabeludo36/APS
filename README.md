@@ -21,6 +21,10 @@ Pede-se aos alunos que desenvolvam um **jogo** com **interface gráfica** utiliz
 
 **Animação Leny**: https://legnops.itch.io/red-hood-character
 
+**Fundo e Terreno:** original, artista: Yara Gengo Barros da Silveira
+
+**Musica:** https://youtu.be/uXcZv56ONFY
+
 ### Assets da fase de teste:
 
 **Fundo e Terreno:** https://svtsmka.itch.io/projectutumno-full?download
