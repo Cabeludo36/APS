@@ -15,6 +15,14 @@ Pede-se aos alunos que desenvolvam um **jogo** com **interface gráfica** utiliz
 
 ------
 
+### Powered by LibGDX
+
+Para criar um executável coloque o comando a baixo no prompt de comando diretório do jogo
+
+`gradlew desktop:dist`
+
+Após isso vá até ***diretório***/desktop/build/libs e lá vai estar o executável.
+
 ## Assets:
 
 ### Assets do jogo final:
