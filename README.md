@@ -25,7 +25,7 @@ O executável esta em ***diretório***/APS-master.jar
 
 **Animação Leny**: https://legnops.itch.io/red-hood-character
 
-**Fundo e Terreno:** original, artista: Yara Gengo Barros da Silveira
+**Fundo e Terreno:** Original, artista: Yara Gengo Barros da Silveira, @pitoka.g
 
 **Musica:** https://youtu.be/uXcZv56ONFY
 
